@@ -41,14 +41,18 @@ public class Print {
 	}
 
 	public static void printTrendLine(double[] temperature, String[] days, int[][] longestTrendLine) {
-		String s = "дня";
-		if (longestTrendLine[0] != null && longestTrendLine[0].length > 4) {		//для отрезка более 20 дней нужно усложнять
-			s = "дней";
-		}
+
 		if (longestTrendLine.length == 0) {
 			System.out.println(
 					"На протяжении анализируемого промежутка времени отсутствуют периоды повышения температуры");
-		} else if (longestTrendLine.length == 1) {
+			return;
+		}
+		String s = "дня";
+		if (longestTrendLine[0] != null && longestTrendLine[0].length > 4) { // для отрезка более 20 дней нужно
+																				// усложнять
+			s = "дней";
+		}
+		if (longestTrendLine.length == 1) {
 			System.out.println("Самый длинный период повышения: " + longestTrendLine[0].length + " " + s + " \n (с "
 					+ days[longestTrendLine[0][0]] + " по " + days[longestTrendLine[0][longestTrendLine[0].length - 1]]
 					+ ")");
@@ -61,5 +65,6 @@ public class Print {
 								+ " по " + days[longestTrendLine[i][longestTrendLine[i].length - 1]] + ")");
 			}
 		}
+
 	}
 }
