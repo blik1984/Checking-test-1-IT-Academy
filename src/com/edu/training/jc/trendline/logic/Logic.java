@@ -10,7 +10,11 @@ public class Logic {
 	public static double[] calculateAverageTemperature(double[][] temperature) {
 		double[] result = new double[temperature.length];
 		for (int i = 0; i < temperature.length; i++) {
-			result[i] = (temperature[i][0] + temperature[i][1] + temperature[i][2]) / 3;
+			double sum = 0;
+			for (int j = 0; j < temperature[i].length; j++) {
+				sum += temperature[i][j];
+			}
+			result[i] = sum / temperature[i].length;
 		}
 		return result;
 	}
